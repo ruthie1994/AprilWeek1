@@ -1,0 +1,74 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <queue>
+using namespace std;
+
+
+struct HuffNode
+{
+	HuffNode * left, * right, * parent;
+	short value;
+	unsigned int freq;
+};
+
+
+struct cmp
+{
+	bool operator() (const HuffNode * a, const HuffNode * b)
+	{
+		return (a->freq > b->freq);
+	}
+};
+
+
+
+
+int main(int argc, char ** argv)
+{
+
+	vector<int> Bobjr;
+	for(int i = 0; i < 15; ++i)
+	{
+		Bobjr.push_back(i);
+	}
+
+	for(int j = 0; j < 15; ++j)
+		cout << Bobjr[j] << ' ';
+	cout << '\n';
+
+	reverse(Bobjr.begin(), Bobjr.end());
+
+	for(int j = 0; j < 15; ++j)
+		cout << Bobjr[j] << ' ';
+	cout << '\n';
+	
+/*	priority_queue <HuffNode *, vector<HuffNode *>, cmp> Bob;
+
+	HuffNode nodes[10];
+
+	nodes[0].freq = 17;
+	nodes[1].freq = 22;
+	nodes[2].freq = 1;
+	nodes[3].freq = 19;
+	nodes[4].freq = 85;
+	nodes[5].freq = 72;
+	nodes[6].freq = 18;
+	nodes[7].freq = 11;
+	nodes[8].freq = 2;
+	nodes[9].freq = 7;
+
+	for(int I = 0; I < 10; ++I)
+	{
+		Bob.push(&nodes[I]);
+	}
+
+	while(!Bob.empty())
+	{
+		HuffNode * temp = Bob.top();
+		Bob.pop();
+		cout << temp->freq << endl;
+	}
+*/
+	return 0;
+}
